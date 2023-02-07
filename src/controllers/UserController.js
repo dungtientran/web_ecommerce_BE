@@ -3,7 +3,7 @@ const UserService = require('../services/UserService')
 
 const createUser = async (req, res) => {
     try {
-        const { name, email, password} = req.body
+        const { name, email, password } = req.body
         if (!email || !password || !name) {
             return res.status(200).json({
                 err: 1,
@@ -26,13 +26,13 @@ const loginUser = async (req, res) => {
         const isCheckEmail = reg.test(email)
         if (!email || !password) {
             return res.status(200).json({
-               err: 1,
-                message: 'Thiếu thông tin'
+                err: 1,
+                msg: 'Thiếu thông tin'
             })
         } else if (!isCheckEmail) {
             return res.status(200).json({
                 err: 1,
-                message: 'Thiếu email'
+                msg: 'Thiếu email'
             })
         }
         const response = await UserService.loginUser(req.body)
@@ -50,8 +50,8 @@ const deleteUser = async (req, res) => {
         const userId = req.params.id
         if (!userId) {
             return res.status(200).json({
-                status: 'ERR',
-                message: 'The userId is required'
+                err: 1,
+                msg: 'The userId is required'
             })
         }
         const response = await UserService.deleteUser(userId)
@@ -81,5 +81,5 @@ module.exports = {
     loginUser,
     deleteUser,
     getAllUser,
- 
+
 }

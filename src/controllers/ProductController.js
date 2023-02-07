@@ -28,8 +28,8 @@ const getDetailsProduct = async (req, res) => {
         const productId = req.params.id
         if (!productId) {
             return res.status(200).json({
-                status: 'ERR',
-                message: 'The productId is required'
+                err: 1,
+                msg: 'K có sản phẩm'
             })
         }
         const response = await ProductService.getDetailsProduct(productId)
@@ -46,8 +46,8 @@ const deleteProduct = async (req, res) => {
         const productId = req.params.id
         if (!productId) {
             return res.status(200).json({
-                status: 'ERR',
-                message: 'The productId is required'
+                err: 1,
+                msg: 'K có sản phẩm'
             })
         }
         const response = await ProductService.deleteProduct(productId)

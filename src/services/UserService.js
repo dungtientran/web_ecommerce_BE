@@ -80,15 +80,15 @@ const deleteUser = (id) => {
             })
             if (checkUser === null) {
                 resolve({
-                    status: 'ERR',
-                    message: 'The user is not defined'
+                    err: 1,
+                    msg: 'The user is not defined'
                 })
             }
 
             await User.findByIdAndDelete(id)
             resolve({
-                status: 'OK',
-                message: 'Delete user success',
+                err: 0,
+                msg: 'Delete user success',
             })
         } catch (e) {
             reject(e)

@@ -46,7 +46,7 @@ const deleteProduct = (id) => {
             if (checkProduct === null) {
                 resolve({
                     err: 1,
-                    message: 'Không có sản phẩm'
+                    msg: 'Không có sản phẩm'
                 })
             }
 
@@ -70,7 +70,7 @@ const getDetailsProduct = (id) => {
             if (product === null) {
                 resolve({
                     err: 1,
-                    message: 'Không có sản phẩm'
+                    msg: 'Không có sản phẩm'
                 })
             }
 
